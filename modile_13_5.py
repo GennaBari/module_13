@@ -14,6 +14,7 @@ class UserState(StatesGroup):
      age = State()
      growth = State()
      weight = State()
+     gender = State()
 
 @dp.message_handler(commands = 'start')
 async def start_message(message):
