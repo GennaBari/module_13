@@ -7,7 +7,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 
-api = ""
+api = "7715838785:AAHWFuxFItqRsoetC_dgSd60OW9ke6lK_c8"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -41,12 +41,6 @@ class UserState(StatesGroup):
 @dp.message_handler(commands=['start'])
 async def start(message):
     await message.answer('Привет', reply_markup=kb)
-
-@dp.message_handler(text='Мужчина')
-async def get_man(message, state):
-        data = await state.get_data()
-        formulas_M = (10 * int(data['weight']) + 6.25 * int(data['growth']) - 5 * int(data['age']) + 5)
-        await message.answer(f'Для вас норма: {formulas_M} ккал')
 
 @dp.message_handler(text='Рассчитать')
 async def main_menu(message):
@@ -116,3 +110,4 @@ async def all_message(message):
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
+
