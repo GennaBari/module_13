@@ -7,7 +7,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 
-api = "7715838785:AAHWFuxFItqRsoetC_dgSd60OW9ke6lK_c8"
+api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -50,12 +50,6 @@ async def main_menu(message):
 async def get_formulas(call):
     await call.message.answer('для мужчин: 10 х вес (кг) + 6,25 x рост (см) – 5 х возраст (г) + 5;'
                               '\nдля женщин: 10 x вес (кг) + 6,25 x рост (см) – 5 x возраст (г) – 161')
-    await call.answer()
-
-@dp.callback_query_handler(text='calories')
-async def set_age(call):
-    await call.message.answer('Введите свой возраст:')
-    await UserState.age.set()
     await call.answer()
 
 @dp.callback_query_handler(text='calories')
